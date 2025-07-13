@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const TypingInAnimation = ({ 
   text, 
@@ -9,7 +10,7 @@ const TypingInAnimation = ({
   onComplete = () => {}
 }) => {
   const [displayedText, setDisplayedText] = useState('');
-  const [showCursor, setShowCursor] = useState(false);
+  const [showCursor, setShowCursor] = useState(true);
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
@@ -19,7 +20,6 @@ const TypingInAnimation = ({
     const startTimeout = setTimeout(() => {
       let currentIndex = 0;
       setDisplayedText('');
-      setShowCursor(true);
       setHasAnimated(true);
 
       const typeNextChar = () => {
@@ -61,6 +61,15 @@ const TypingInAnimation = ({
       </span>
     </>
   );
+};
+
+TypingInAnimation.propTypes = {
+  text: PropTypes.string.isRequired,
+  speed: PropTypes.number,
+  delay: PropTypes.number,
+  style: PropTypes.object,
+  className: PropTypes.string,
+  onComplete: PropTypes.func
 };
 
 export default TypingInAnimation;

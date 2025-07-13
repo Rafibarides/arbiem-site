@@ -5,6 +5,7 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import palette from '../utils/Colors.js';
 import NavBar from '../components/NavBar.jsx';
 import TypingInAnimation from '../components/TypingInAnimation.jsx';
+import Footer from '../sections/Footer.jsx';
 
 const FAQpage = () => {
   const [openQuestion, setOpenQuestion] = useState(null);
@@ -230,6 +231,7 @@ const FAQpage = () => {
          </motion.div>
 
       </div>
+      <Footer />
     </div>
   );
 };

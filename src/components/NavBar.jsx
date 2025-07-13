@@ -71,9 +71,18 @@ const NavBar = () => {
   ];
 
   const handleLinkClick = (item) => {
-    if (item.type === 'hash' && location.pathname !== '/') {
-      // If we're not on home page and clicking a hash link, go to home first
-      window.location.href = item.link;
+    if (item.type === 'hash') {
+      if (location.pathname !== '/') {
+        // If we're not on home page, go to home first
+        window.location.href = item.link;
+      } else {
+        // If we're on home page, smooth scroll to section
+        const targetId = item.link.replace('/#', '');
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
   };
 
@@ -83,8 +92,8 @@ const NavBar = () => {
         position: 'sticky',
         top: 0,
         width: '100%',
-        background: `linear-gradient(to bottom, ${palette.black} 0%, ${palette.black}80 70%, transparent 100%)`,
-        backdropFilter: 'blur(10px)',
+        background: `linear-gradient(to bottom, ${palette.black} 0%, ${palette.black}60 70%, transparent 100%)`,
+        backdropFilter: 'blur(5px)',
         zIndex: 1000,
         padding: isMobile ? '20px 20px' : '30px 40px',
         display: 'flex',
@@ -146,7 +155,12 @@ const NavBar = () => {
                   <a
                     key={index}
                     href={item.link}
-                    onClick={() => handleLinkClick(item)}
+                    onClick={(e) => {
+                      if (location.pathname === '/') {
+                        e.preventDefault();
+                      }
+                      handleLinkClick(item);
+                    }}
                     style={{
                       color: palette.text,
                       textDecoration: 'none',
@@ -248,7 +262,7 @@ const NavBar = () => {
                       Lyrics Sync
                     </a>
                     <a
-                      href="#get-on-arbiem"
+                      href="mailto:rafibaridesstudio@gmail.com"
                       style={{
                         display: 'block',
                         padding: '10px 20px',
@@ -365,7 +379,10 @@ const NavBar = () => {
               <a
                 key={index}
                 href={item.link}
-                onClick={() => {
+                onClick={(e) => {
+                  if (location.pathname === '/') {
+                    e.preventDefault();
+                  }
                   handleLinkClick(item);
                   setIsMobileMenuOpen(false);
                 }}
@@ -427,7 +444,7 @@ const NavBar = () => {
               Lyrics Sync
             </a>
             <a
-              href="#get-on-arbiem"
+              href="mailto:rafibaridesstudio@gmail.com"
               style={{
                 color: palette.text,
                 textDecoration: 'none',

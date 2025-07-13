@@ -10,7 +10,7 @@ const WelcomeSection = () => {
 
   return (
     <div style={{
-      minHeight: '100vh',
+      minHeight: '80vh',
       backgroundColor: palette.black,
       display: 'flex',
       flexDirection: 'column',

@@ -4,6 +4,7 @@ import palette from '../utils/Colors.js';
 import NavBar from '../components/NavBar.jsx';
 import GradientButton from '../components/GradientButton.jsx';
 import TypingInAnimation from '../components/TypingInAnimation.jsx';
+import Footer from '../sections/Footer.jsx';
 import { faApple } from '@fortawesome/free-brands-svg-icons';
 
 const Brooklyn = () => {
@@ -237,6 +238,7 @@ const Brooklyn = () => {
         </motion.div>
 
       </div>
+      <Footer />
     </div>
   );
 };

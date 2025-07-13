@@ -15,11 +15,25 @@ import TypingInAnimation from '../components/TypingInAnimation.jsx';
 
 const AboutSection = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   return (
@@ -140,7 +154,7 @@ const AboutSection = () => {
               style={{
                 maxWidth: '70%',
                 height: 'auto',
-                borderRadius: '3rem',
+                borderRadius: isMobile ? '1.8rem' : '3rem',
                 boxShadow: `0 15px 40px ${palette.purple}30`,
                 position: 'relative',
                 zIndex: 3,
