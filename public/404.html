@@ -5,23 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arbiem Music - Redirecting...</title>
   <script>
-    // GitHub Pages SPA redirect script
-    // This script takes the current URL and redirects to index.html 
-    // with the route information preserved in the URL fragment
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // This script checks to see if a redirect is present in the query string,
+    // converts it back into the correct url and adds it to the
+    // browser's history using window.history.replaceState(...)
     
-    // Get the current pathname
-    const pathname = window.location.pathname;
-    const search = window.location.search;
-    const hash = window.location.hash;
+    var pathSegmentsToKeep = 0;
     
-    // Redirect to index.html with the path preserved
-    // GitHub Pages will serve index.html, and then our React app can handle the routing
-    window.location.replace(
-      window.location.origin + 
-      '/index.html' + 
-      '?p=' + pathname + 
-      search + 
-      hash
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
     );
   </script>
 </head>

@@ -33,35 +33,6 @@ const Roster = () => {
         // Fallback to hardcoded data for now
         const fallbackData = [
           {
-            "id": 1,
-            "name": "Joey",
-            "image": "https://i.pinimg.com/736x/3c/b5/00/3cb5006d920ab3293da41860dcef7bd4.jpg",
-            "singles": [
-              {
-                "id": 1,
-                "name": "Dance With Me",
-                "coverArt": "https://blog.pixpa.com/wp-content/uploads/2021/03/word-image-122.jpeg",
-                "audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-                "releaseDate": "2021-01-01",
-                "lyrics": "./../../LyricCenter/FeelsLikeHome.json"
-              }
-            ],
-            "albums": [
-              {
-                "id": 1,
-                "name": "After Dark",
-                "coverArt": "https://progradedigital.com/wp-content/uploads/2023/04/31-Main-Image.png",
-                "releaseDate": "2021-01-01"
-              }
-            ],
-            "bio": "Joey is a singer-songwriter from Los Angeles, California. He has been making music for over 10 years and has released several albums and singles."
-          },
-          {
-            "id": 2,
-            "name": "Devin Bryer",
-            "image": "https://img.freepik.com/premium-photo/close-up-portrait-millennial-boy-teenager-seriously-looking-camera-handsome-beautiful-young-man_516988-1669.jpg"
-          },
-          {
             "id": 3,
             "name": "Kyle K",
             "image": "https://www.shutterstock.com/image-photo/handsome-calm-man-portrait-young-600nw-1615127239.jpg"
