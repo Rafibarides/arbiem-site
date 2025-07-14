@@ -1,5 +1,6 @@
 // API utility functions
 const API_BASE_URL = 'https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev';
+const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
 
 // Get the correct API URL based on environment
 export const getApiUrl = (endpoint) => {
@@ -7,8 +8,8 @@ export const getApiUrl = (endpoint) => {
   if (import.meta.env.DEV) {
     return `/api${endpoint}`;
   }
-  // In production, use direct URL
-  return `${API_BASE_URL}${endpoint}`;
+  // In production, use CORS proxy to avoid CORS issues
+  return `${CORS_PROXY}${encodeURIComponent(API_BASE_URL + endpoint)}`;
 };
 
 // Fetch artists data
