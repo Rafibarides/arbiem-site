@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar.jsx';
 import palette from '../utils/Colors.js';
 import TypingInAnimation from '../components/TypingInAnimation.jsx';
 import Footer from '../sections/Footer.jsx';
+import { fetchArtists } from '../utils/api.js';
 
 const Roster = () => {
   const [artists, setArtists] = useState([]);
@@ -11,85 +12,20 @@ const Roster = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchArtists = async () => {
+    const loadArtists = async () => {
       try {
-        const response = await fetch('https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/jsonMaster/artists.json', {
-          method: 'GET',
-          mode: 'cors',
-          cache: 'no-cache',
-          headers: {
-            'Accept': 'application/json',
-          },
-        });
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
+        const data = await fetchArtists();
         setArtists(data);
       } catch (err) {
         console.error('Fetch error:', err);
-        // Fallback to hardcoded data for now
-        const fallbackData = [
-          {
-            "id": 3,
-            "name": "Kyle K",
-            "image": "https://www.shutterstock.com/image-photo/handsome-calm-man-portrait-young-600nw-1615127239.jpg"
-          },
-          {
-            "id": 4,
-            "name": "Ben Lerner",
-            "image": "https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/Artists/Ben%20Lerner/benLerner.jpg",
-            "albums": [
-              {
-                "id": 3,
-                "name": "The Only Living Boy in Brooklyn",
-                "coverArt": "https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/Artists/Ben%20Lerner/Albums/theOnlyLivingBoyInBrooklyn/theOnlyLivingBoyInBrooklyn.jpg",
-                "releaseDate": "2024-12-08"
-              }
-            ]
-          },
-          {
-            "id": 5,
-            "name": "Rafi Barides",
-            "image": "https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/Artists/Rafi%20Barides/rafiBarides.jpg",
-            "singles": [
-              {
-                "id": 16,
-                "name": "Outer Space (ft. Shira Neshama)",
-                "coverArt": "https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/Artists/Rafi%20Barides/Singles/OuterSpace/outerSpace.jpg",
-                "audio": "https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/Artists/Rafi%20Barides/Singles/OuterSpace/outerSpace.wav",
-                "releaseDate": "2024-01-04",
-                "lyrics": "https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/Artists/Rafi%20Barides/Singles/OuterSpace/outerSpaceLyrics.json"
-              }
-            ],
-            "albums": [
-              {
-                "id": 2,
-                "name": "Rags to Rags",
-                "coverArt": "https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/Artists/Rafi%20Barides/Albums/RagsToRags/ragsToRags.jpg",
-                "releaseDate": "2020-01-01"
-              }
-            ],
-            "bio": "Rafi Barides is a singer-songwriter from Los Angeles, California. He has been making music for over 10 years and has released several albums and singles.",
-            "supportLink": "https://www.paypal.com"
-          },
-          {
-            "id": 6,
-            "name": "Ericah",
-            "image": "https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/Artists/Ericah/ericah.jpeg"
-          }
-        ];
-        
-        setArtists(fallbackData);
-        setError(null); // Clear error since we have fallback data
+        setError('Failed to load artists. Please try again later.');
+        setArtists([]); // Set empty array on error
       } finally {
         setLoading(false);
       }
     };
 
-    fetchArtists();
+    loadArtists();
   }, []);
 
   if (loading) {
@@ -126,6 +62,27 @@ const Roster = () => {
         }}>
           Error: {error}
         </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (!loading && artists.length === 0) {
+    return (
+      <div style={{ backgroundColor: palette.black, minHeight: '100vh' }}>
+        <NavBar />
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '80vh',
+          color: palette.text,
+          fontSize: '1.2rem',
+          fontFamily: '"M PLUS Rounded 1c", sans-serif'
+        }}>
+          No artists found. Check back soon!
+        </div>
+        <Footer />
       </div>
     );
   }

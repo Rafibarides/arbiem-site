@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import palette from '../utils/Colors.js';
+import { fetchArtists } from '../utils/api.js';
 
 const FeaturedArtists = () => {
   const [artists, setArtists] = useState([]);
@@ -10,65 +11,19 @@ const FeaturedArtists = () => {
   const scrollSpeed = 50;
   
   useEffect(() => {
-    const fetchArtists = async () => {
+    const loadArtists = async () => {
       try {
-        const response = await fetch('https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/jsonMaster/artists.json', {
-          method: 'GET',
-          mode: 'cors',
-          cache: 'no-cache',
-          headers: {
-            'Accept': 'application/json',
-          },
-        });
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
+        const data = await fetchArtists();
         setArtists(data);
       } catch (err) {
         console.error('Fetch error:', err);
-        // Fallback to hardcoded data for now
-        const fallbackData = [
-          {
-            "id": 1,
-            "name": "Joey",
-            "image": "https://i.pinimg.com/736x/3c/b5/00/3cb5006d920ab3293da41860dcef7bd4.jpg"
-          },
-          {
-            "id": 2,
-            "name": "Devin Bryer",
-            "image": "https://img.freepik.com/premium-photo/close-up-portrait-millennial-boy-teenager-seriously-looking-camera-handsome-beautiful-young-man_516988-1669.jpg"
-          },
-          {
-            "id": 3,
-            "name": "Kyle K",
-            "image": "https://www.shutterstock.com/image-photo/handsome-calm-man-portrait-young-600nw-1615127239.jpg"
-          },
-          {
-            "id": 4,
-            "name": "Ben Lerner",
-            "image": "https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/Artists/Ben%20Lerner/benLerner.jpg"
-          },
-          {
-            "id": 5,
-            "name": "Rafi Barides",
-            "image": "https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/Artists/Rafi%20Barides/rafiBarides.jpg"
-          },
-          {
-            "id": 6,
-            "name": "Ericah",
-            "image": "https://pub-a2d61889013a43e69563a1bbccaed58c.r2.dev/Artists/Ericah/ericah.jpeg"
-          }
-        ];
-        setArtists(fallbackData);
+        setArtists([]); // Set empty array on error
       } finally {
         setLoading(false);
       }
     };
 
-    fetchArtists();
+    loadArtists();
   }, []);
 
   if (loading || artists.length === 0) {

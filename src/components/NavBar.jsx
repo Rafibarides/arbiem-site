@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faApple } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,7 +11,6 @@ const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const dropdownRef = useRef(null);
-  const location = useLocation();
 
   const handleResourcesToggle = () => {
     setIsResourcesOpen(!isResourcesOpen);
@@ -64,35 +63,11 @@ const NavBar = () => {
   }, [isMobileMenuOpen]);
 
   const menuItems = [
-    { name: 'About', link: '/#about', type: 'hash' },
-    { name: 'FAQ', link: '/FAQ', type: 'route' },
-    { name: 'Roster', link: '/roster', type: 'route' },
-    { name: 'Brooklyn', link: '/brooklyn', type: 'route' }
+    { name: 'About', link: '/about' },
+    { name: 'FAQ', link: '/faq' },
+    { name: 'Roster', link: '/roster' },
+    { name: 'Brooklyn', link: '/brooklyn' }
   ];
-
-  const handleLinkClick = (item) => {
-    if (item.type === 'hash') {
-      if (location.pathname !== '/') {
-        // If we're not on home page, go to home first
-        window.location.href = '/#/';
-        // Small delay to allow navigation, then scroll
-        setTimeout(() => {
-          const targetId = item.link.replace('/#', '');
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
-      } else {
-        // If we're on home page, smooth scroll to section
-        const targetId = item.link.replace('/#', '');
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    }
-  };
 
   return (
     <>
@@ -135,61 +110,29 @@ const NavBar = () => {
               justifyContent: 'center'
             }}>
               {menuItems.map((item, index) => (
-                item.type === 'route' ? (
-                  <Link
-                    key={index}
-                    to={item.link}
-                    style={{
-                      color: palette.text,
-                      textDecoration: 'none',
-                      fontSize: 'clamp(0.6rem, 2vw, 0.8rem)',
-                      fontWeight: '500',
-                      opacity: 0.75,
-                      transition: 'opacity 0.3s ease, color 0.3s ease',
-                      cursor: 'pointer'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.opacity = '1';
-                      e.target.style.color = palette.purple;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.opacity = '0.75';
-                      e.target.style.color = palette.text;
-                    }}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <a
-                    key={index}
-                    href={item.link}
-                    onClick={(e) => {
-                      if (location.pathname === '/') {
-                        e.preventDefault();
-                      }
-                      handleLinkClick(item);
-                    }}
-                    style={{
-                      color: palette.text,
-                      textDecoration: 'none',
-                      fontSize: 'clamp(0.6rem, 2vw, 0.8rem)',
-                      fontWeight: '500',
-                      opacity: 0.75,
-                      transition: 'opacity 0.3s ease, color 0.3s ease',
-                      cursor: 'pointer'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.opacity = '1';
-                      e.target.style.color = palette.purple;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.opacity = '0.75';
-                      e.target.style.color = palette.text;
-                    }}
-                  >
-                    {item.name}
-                  </a>
-                )
+                <Link
+                  key={index}
+                  to={item.link}
+                  style={{
+                    color: palette.text,
+                    textDecoration: 'none',
+                    fontSize: 'clamp(0.6rem, 2vw, 0.8rem)',
+                    fontWeight: '500',
+                    opacity: 0.75,
+                    transition: 'opacity 0.3s ease, color 0.3s ease',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.opacity = '1';
+                    e.target.style.color = palette.purple;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.opacity = '0.75';
+                    e.target.style.color = palette.text;
+                  }}
+                >
+                  {item.name}
+                </Link>
               ))}
 
               {/* Resources Dropdown */}
@@ -358,63 +301,30 @@ const NavBar = () => {
         >
           {/* Mobile Menu Items */}
           {menuItems.map((item, index) => (
-            item.type === 'route' ? (
-              <Link
-                key={index}
-                to={item.link}
-                style={{
-                  color: palette.text,
-                  textDecoration: 'none',
-                  fontSize: '1.5rem',
-                  fontWeight: '500',
-                  opacity: 0.75,
-                  transition: 'opacity 0.3s ease, color 0.3s ease',
-                  cursor: 'pointer'
-                }}
-                onClick={() => setIsMobileMenuOpen(false)}
-                onMouseEnter={(e) => {
-                  e.target.style.opacity = '1';
-                  e.target.style.color = palette.purple;
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.opacity = '0.75';
-                  e.target.style.color = palette.text;
-                }}
-              >
-                {item.name}
-              </Link>
-            ) : (
-              <a
-                key={index}
-                href={item.link}
-                onClick={(e) => {
-                  if (location.pathname === '/') {
-                    e.preventDefault();
-                  }
-                  handleLinkClick(item);
-                  setIsMobileMenuOpen(false);
-                }}
-                style={{
-                  color: palette.text,
-                  textDecoration: 'none',
-                  fontSize: '1.5rem',
-                  fontWeight: '500',
-                  opacity: 0.75,
-                  transition: 'opacity 0.3s ease, color 0.3s ease',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.opacity = '1';
-                  e.target.style.color = palette.purple;
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.opacity = '0.75';
-                  e.target.style.color = palette.text;
-                }}
-              >
-                {item.name}
-              </a>
-            )
+            <Link
+              key={index}
+              to={item.link}
+              style={{
+                color: palette.text,
+                textDecoration: 'none',
+                fontSize: '1.5rem',
+                fontWeight: '500',
+                opacity: 0.75,
+                transition: 'opacity 0.3s ease, color 0.3s ease',
+                cursor: 'pointer'
+              }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              onMouseEnter={(e) => {
+                e.target.style.opacity = '1';
+                e.target.style.color = palette.purple;
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.opacity = '0.75';
+                e.target.style.color = palette.text;
+              }}
+            >
+              {item.name}
+            </Link>
           ))}
 
           {/* Mobile Resources Section */}
