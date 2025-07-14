@@ -5,25 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- GitHub Pages SPA redirect script -->
-    <script>
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // This script checks to see if a redirect is present in the query string,
-      // converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...)
-      
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = decodeURIComponent(l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?'));
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location))
-    </script>
+
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Arbiem Music - A new kind of streaming platform. A native streaming home for a small, intentional collective of artists, primarily rooted in the greater Brooklyn area." />

@@ -74,7 +74,15 @@ const NavBar = () => {
     if (item.type === 'hash') {
       if (location.pathname !== '/') {
         // If we're not on home page, go to home first
-        window.location.href = item.link;
+        window.location.href = '/#/';
+        // Small delay to allow navigation, then scroll
+        setTimeout(() => {
+          const targetId = item.link.replace('/#', '');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
       } else {
         // If we're on home page, smooth scroll to section
         const targetId = item.link.replace('/#', '');
