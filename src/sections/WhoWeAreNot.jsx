@@ -14,23 +14,23 @@ const WhoWeAreNot = () => {
   const notItems = [
     {
       icon: faLock,
-      text: "We will not arbitrarily gatekeep features like motion artwork, reserving it for labels."
+      text: "We will not gatekeep features like motion artwork for labels."
     },
     {
       icon: faDollarSign,
-      text: "We will not require you to spend MONTHLY to have fans be able to review your lyrics through a sleazy third party like Musixmatch."
+      text: "We will not make you pay monthly just to show your lyrics."
     },
     {
       icon: faGavel,
-      text: "We will not punish you for not being on a label."
+      text: "We don't penalize independent artists."
     },
     {
       icon: faCrown,
-      text: "We will not do \"winner-takes-all\" because we do not need to overpay for Taylor Swift's licensing rights."
+      text: "We don't do winner-takes-all models. We're not chasing overpriced licensing deals."
     },
     {
       icon: faCompress,
-      text: "We will not compress your audio or artwork (at all!)"
+      text: "We will not compress your audio or artwork. Period."
     }
   ];
 

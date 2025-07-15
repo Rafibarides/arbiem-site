@@ -102,7 +102,7 @@ const Brooklyn = () => {
             lineHeight: '1.2'
           }}>
             <TypingInAnimation 
-              text="We are rooted in brooklyn's artistic DNA" 
+              text="We are rooted in Brooklyn's artistic DNA" 
               speed={40}
               delay={200}
             />
