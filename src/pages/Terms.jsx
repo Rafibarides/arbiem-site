@@ -523,7 +523,7 @@ const Terms = () => {
             </p>
           </motion.div>
 
-          {/* Contact Information */}
+          {/* For Artists */}
           <motion.div
             style={{
               background: `linear-gradient(135deg, ${palette.secondary}70 0%, ${palette.tertiary}30 100%)`,
@@ -536,6 +536,94 @@ const Terms = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '15px',
+              marginBottom: '20px'
+            }}>
+              <div style={{
+                fontSize: '2rem',
+                color: palette.purple,
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: `${palette.purple}20`,
+                borderRadius: '50%'
+              }}>
+                🎵
+              </div>
+              <h3 style={{
+                fontSize: 'clamp(1.2rem, 3vw, 1.4rem)',
+                fontWeight: '600',
+                color: palette.text,
+                margin: '0'
+              }}>
+                8. For Artists Contributing Content
+              </h3>
+            </div>
+            
+            <div style={{
+              fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+              color: palette.text,
+              lineHeight: '1.6',
+              opacity: 0.9
+            }}>
+              <p style={{ marginBottom: '15px' }}>
+                <strong>If you are an artist uploading content to Arbiem, you agree to the following:</strong>
+              </p>
+              
+              <ul style={{
+                listStyle: 'none',
+                padding: '0',
+                margin: '0 0 15px 0'
+              }}>
+                <li style={{ marginBottom: '8px' }}>• You must submit a signed license and agreement form before uploading any content</li>
+                <li style={{ marginBottom: '8px' }}>• You confirm ownership of all intellectual property you submit</li>
+                <li style={{ marginBottom: '8px' }}>• You must provide your legal name and contact information</li>
+                <li style={{ marginBottom: '8px' }}>• By submitting content, you choose to participate and affirm ownership rights</li>
+                <li style={{ marginBottom: '8px' }}>• You grant Arbiem permission to stream your content through the platform</li>
+                <li style={{ marginBottom: '8px' }}>• You can remove your content at any time</li>
+                <li style={{ marginBottom: '0' }}>• No content can be submitted without proper certification and signing</li>
+              </ul>
+              
+              <p style={{ marginBottom: '15px' }}>
+                <strong>Content Ownership and Responsibility:</strong>
+              </p>
+              
+              <ul style={{
+                listStyle: 'none',
+                padding: '0',
+                margin: '0 0 15px 0'
+              }}>
+                <li style={{ marginBottom: '8px' }}>• You retain full ownership of your intellectual property</li>
+                <li style={{ marginBottom: '8px' }}>• You are responsible for ensuring you have rights to all submitted material</li>
+                <li style={{ marginBottom: '8px' }}>• You upload your own media on your own terms</li>
+                <li style={{ marginBottom: '0' }}>• You must have proper licensing for any third-party elements in your work</li>
+              </ul>
+              
+              <p style={{ margin: '0' }}>
+                Arbiem operates as a small, community-based platform where all content is submitted with full permission by rightful owners. We do not provide unauthorized access to any third-party content.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Contact Information */}
+          <motion.div
+            style={{
+              background: `linear-gradient(135deg, ${palette.secondary}70 0%, ${palette.tertiary}30 100%)`,
+              backdropFilter: 'blur(10px)',
+              border: `1px solid ${palette.tertiary}30`,
+              borderRadius: '20px',
+              padding: '30px',
+              position: 'relative'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
           >
             <div style={{
               display: 'flex',

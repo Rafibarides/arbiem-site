@@ -29,7 +29,7 @@ const FAQpage = () => {
     },
     {
       question: "Can I upload my music to Arbiem?",
-      answer: "If you're aligned with our values and want to contribute to a platform that values artistry over algorithms, email rafibaridesstudio@gmail.com"
+      answer: "If you're aligned with our values and want to contribute to a platform that values artistry over algorithms, email info@arbiem.com"
     },
     {
       question: "Is the audio really uncompressed?",
@@ -212,7 +212,7 @@ const FAQpage = () => {
            }}>
              Still have questions? Get in touch with us directly: {' '}
              <a
-               href="mailto:rafibaridesstudio@gmail.com"
+               href="mailto:support@arbiem.com"
                style={{
                  color: palette.purple,
                  textDecoration: 'none',
@@ -225,7 +225,7 @@ const FAQpage = () => {
                  e.target.style.opacity = '1';
                }}
              >
-               rafibaridesstudio@gmail.com
+               support@arbiem.com
              </a>
            </p>
          </motion.div>

@@ -301,7 +301,7 @@ const Careers = () => {
                 }}
               />
               <a
-                href="mailto:rafibaridesstudio@gmail.com?subject=Career Inquiry - Arbiem"
+                href="mailto:info@arbiem.com?subject=Career Inquiry - Arbiem"
                 style={{
                   color: palette.purple,
                   textDecoration: 'none',
@@ -316,7 +316,7 @@ const Careers = () => {
                   e.target.style.opacity = '1';
                 }}
               >
-                rafibaridesstudio@gmail.com
+                info@arbiem.com
               </a>
             </div>
             

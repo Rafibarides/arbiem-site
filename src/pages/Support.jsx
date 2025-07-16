@@ -249,7 +249,7 @@ const Support = () => {
               }}
             />
             <a
-              href="mailto:rafibaridesstudio@gmail.com"
+              href="mailto:support@arbiem.com"
               style={{
                 color: palette.purple,
                 textDecoration: 'none',
@@ -264,7 +264,7 @@ const Support = () => {
                 e.target.style.opacity = '1';
               }}
             >
-              rafibaridesstudio@gmail.com
+              support@arbiem.com
             </a>
           </div>
           

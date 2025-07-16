@@ -213,7 +213,7 @@ const NavBar = () => {
                       Lyrics Sync
                     </a>
                     <a
-                      href="mailto:rafibaridesstudio@gmail.com"
+                      href="mailto:info@arbiem.com"
                       style={{
                         display: 'block',
                         padding: '10px 20px',
@@ -362,7 +362,7 @@ const NavBar = () => {
               Lyrics Sync
             </a>
             <a
-              href="mailto:rafibaridesstudio@gmail.com"
+              href="mailto:info@arbiem.com"
               style={{
                 color: palette.text,
                 textDecoration: 'none',

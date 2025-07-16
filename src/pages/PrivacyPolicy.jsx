@@ -421,7 +421,7 @@ const PrivacyPolicy = () => {
             </div>
           </motion.div>
 
-          {/* Contact */}
+          {/* For Artists */}
           <motion.div
             style={{
               background: `linear-gradient(135deg, ${palette.secondary}70 0%, ${palette.tertiary}30 100%)`,
@@ -434,6 +434,76 @@ const PrivacyPolicy = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '15px',
+              marginBottom: '20px'
+            }}>
+              <div style={{
+                fontSize: '2rem',
+                color: palette.purple,
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: `${palette.purple}20`,
+                borderRadius: '50%'
+              }}>
+                🎵
+              </div>
+              <h3 style={{
+                fontSize: 'clamp(1.2rem, 3vw, 1.4rem)',
+                fontWeight: '600',
+                color: palette.text,
+                margin: '0'
+              }}>
+                For Artists
+              </h3>
+            </div>
+            
+            <div style={{
+              fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+              color: palette.text,
+              lineHeight: '1.6',
+              opacity: 0.9
+            }}>
+              <p style={{ marginBottom: '15px' }}>
+                <strong>If you&apos;re an artist contributing content to Arbiem:</strong>
+              </p>
+              
+              <ul style={{
+                listStyle: 'none',
+                padding: '0',
+                margin: '0 0 15px 0'
+              }}>
+                <li style={{ marginBottom: '8px' }}>• We do not collect or store personal information from your audience</li>
+                <li style={{ marginBottom: '8px' }}>• Your uploaded content remains your intellectual property</li>
+                <li style={{ marginBottom: '8px' }}>• You maintain control and can remove your content at any time</li>
+                <li style={{ marginBottom: '0' }}>• We only store basic metadata necessary for app functionality</li>
+              </ul>
+              
+              <p style={{ margin: '0' }}>
+                Our platform is designed to respect both artist and listener privacy while providing a quality streaming experience.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Contact */}
+          <motion.div
+            style={{
+              background: `linear-gradient(135deg, ${palette.secondary}70 0%, ${palette.tertiary}30 100%)`,
+              backdropFilter: 'blur(10px)',
+              border: `1px solid ${palette.tertiary}30`,
+              borderRadius: '20px',
+              padding: '30px',
+              position: 'relative'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
           >
             <div style={{
               display: 'flex',
@@ -473,14 +543,14 @@ const PrivacyPolicy = () => {
             }}>
               If you have questions or concerns about this policy, you can contact the developer at:{' '}
               <a 
-                href="mailto:rafibaridesstudio@gmail.com"
+                href="mailto:info@arbiem.com"
                 style={{
                   color: palette.purple,
                   textDecoration: 'none',
                   fontWeight: '600'
                 }}
               >
-                rafibaridesstudio@gmail.com
+                info@arbiem.com
               </a>
             </p>
           </motion.div>

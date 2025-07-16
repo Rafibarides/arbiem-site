@@ -399,7 +399,7 @@ const Roster = () => {
           }}>
             Want to join Arbiem? Email us at{' '}
             <a
-              href="mailto:rafibaridesstudio@gmail.com"
+              href="mailto:info@arbiem.com"
               style={{
                 color: palette.purple,
                 textDecoration: 'none',
@@ -413,7 +413,7 @@ const Roster = () => {
                 e.target.style.opacity = '1';
               }}
             >
-              rafibaridesstudio@gmail.com
+              info@arbiem.com
             </a>
           </p>
         </motion.div>

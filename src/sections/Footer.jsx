@@ -302,7 +302,7 @@ const Footer = () => {
               }}>
                 <li>
                   <a
-                    href="mailto:rafibaridesstudio@gmail.com"
+                    href="mailto:rafi@arbiem.com"
                     style={{
                       color: palette.text,
                       textDecoration: 'none',
