@@ -248,7 +248,7 @@ const NavBar = () => {
               <GradientButton
                 icon={faApple}
                 size="small"
-                onClick={() => window.open('https://apple.com', '_blank')}
+                onClick={() => window.open('https://apps.apple.com/us/app/arbiem/id6748650787', '_blank')}
               >
                 Download
               </GradientButton>
@@ -390,7 +390,7 @@ const NavBar = () => {
               icon={faApple}
               size="medium"
               onClick={() => {
-                window.open('https://apple.com', '_blank');
+                window.open('https://apps.apple.com/us/app/arbiem/id6748650787', '_blank');
                 setIsMobileMenuOpen(false);
               }}
             >

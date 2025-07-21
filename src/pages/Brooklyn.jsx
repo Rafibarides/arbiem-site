@@ -231,7 +231,7 @@ const Brooklyn = () => {
           <GradientButton
             icon={faApple}
             size="large"
-            onClick={() => window.open('https://apple.com', '_blank')}
+            onClick={() => window.open('https://apps.apple.com/us/app/arbiem/id6748650787', '_blank')}
           >
             Download
           </GradientButton>
