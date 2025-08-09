@@ -12,10 +12,40 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import palette from "../utils/Colors.js";
 import TypingInAnimation from "../components/TypingInAnimation.jsx";
+import Mockup3D from "../components/Mockup3D.jsx";
 
 const AboutSection = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  
+  // Variants for icon hover animation loop
+  const iconVariants = {
+    initial: { y: 0, rotate: 0 },
+    hovered: {
+      y: [0, -3, 0, 2, 0],
+      rotate: [0, -3, 0, 3, 0],
+      transition: {
+        duration: 1.4,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  // Variants for card hover to also drive child icon variants
+  const cardVariants = {
+    rest: {
+      scale: 1,
+      boxShadow:
+        "0 10px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.05)",
+      transition: { duration: 0.2, ease: "easeOut" },
+    },
+    hovered: {
+      scale: 1.02,
+      boxShadow: `${palette.purple}20 0px 8px 25px`,
+      transition: { duration: 0.25, ease: "easeOut" },
+    },
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -42,9 +72,9 @@ const AboutSection = () => {
       style={{
         minHeight: "100vh",
         backgroundColor: palette.black,
-        padding: "80px 20px",
+        padding: "60px 20px",
         position: "relative",
-        overflow: "hidden",
+        overflow: "visible",
         fontFamily: '"M PLUS Rounded 1c", sans-serif',
       }}
     >
@@ -88,9 +118,9 @@ const AboutSection = () => {
             display: "flex",
             alignItems: "flex-start",
             gap: "60px",
-            marginBottom: "120px",
+              marginBottom: isMobile ? "20px" : "36px",
             flexWrap: "wrap",
-            height: "80vh", // Ensure enough height for parallax effect
+              // height intentionally unset to avoid vertical clipping of 3D canvas
           }}
         >
           {/* Text Content */}
@@ -150,7 +180,7 @@ const AboutSection = () => {
             </div>
           </motion.div>
 
-          {/* Mockup Image with Proper Parallax */}
+          {/* 3D Mockup with scroll-reactive rotation and subtle parallax */}
           <motion.div
             style={{
               flex: "1 1 350px",
@@ -163,24 +193,27 @@ const AboutSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <img
-              src="/mockup1.png"
-              alt="Arbiem App Mockup"
+            <div
               style={{
-                maxWidth: "70%",
-                height: "auto",
-                borderRadius: isMobile ? "1.8rem" : "3rem",
-                boxShadow: `0 15px 40px ${palette.purple}30`,
                 position: "relative",
-                zIndex: 3,
-                transform: `translateY(${
-                  scrollY > window.innerHeight
-                    ? (scrollY - window.innerHeight) * -0.45
-                    : 0
-                }px)`, // Parallax only during About section, maintaining 1.5x height ratio
+                zIndex: 20,
+                transform: `translateY(${ 
+                  scrollY > window.innerHeight 
+                    ? (scrollY - window.innerHeight) * -0.2 
+                    : 0 
+                }px)`,
                 transition: "transform 0.1s ease-out",
+                background: 'transparent',
+                filter: 'none',
+                overflow: 'visible',
+                marginTop: isMobile ? '-20px' : '-60px'
               }}
-            />
+            >
+              <Mockup3D
+                isMobile={isMobile}
+                rotation={(scrollY - window.innerHeight) * 0.003}
+              />
+            </div>
           </motion.div>
         </div>
 
@@ -212,8 +245,8 @@ const AboutSection = () => {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "25px",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: "22px",
               maxWidth: "1000px",
               margin: "0 auto",
             }}
@@ -241,36 +274,43 @@ const AboutSection = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                style={{
-                  background: `linear-gradient(135deg, ${palette.secondary}80 0%, ${palette.tertiary}40 100%)`,
-                  backdropFilter: "blur(10px)",
-                  border: `1px solid ${palette.tertiary}30`,
-                  borderRadius: "12px",
-                  padding: "20px",
-                  textAlign: "left",
-                  height: "190px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-start",
-                }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: `0 8px 25px ${palette.purple}20`,
-                }}
               >
-                <div
+                <motion.div
+                  style={{
+                    background: `linear-gradient(135deg, ${palette.secondary}20 0%, ${palette.tertiary}10 100%)`,
+                    backdropFilter: "blur(20px) saturate(160%)",
+                    WebkitBackdropFilter: "blur(20px) saturate(160%)",
+                    border: `1px solid ${palette.tertiary}20`,
+                    borderRadius: "16px",
+                    padding: "16px",
+                    textAlign: "left",
+                    height: "165px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-start",
+                    boxShadow:
+                      "0 10px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.05)",
+                  }}
+                  variants={cardVariants}
+                  initial="rest"
+                  whileHover="hovered"
+                  animate="rest"
+                >
+                <motion.div
                   style={{
                     fontSize: "1.2rem",
                     marginBottom: "10px",
                     color: palette.text,
                     flexShrink: 0,
                   }}
+                  variants={iconVariants}
+                  initial="initial"
                 >
                   <FontAwesomeIcon icon={item.icon} />
-                </div>
+                </motion.div>
                 <p
                   style={{
                     fontSize: "clamp(0.8rem, 2.2vw, 0.95rem)",
@@ -283,6 +323,7 @@ const AboutSection = () => {
                 >
                   {item.text}
                 </p>
+                </motion.div>
               </motion.div>
             ))}
           </div>
