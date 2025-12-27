@@ -1,0 +1,9 @@
+# Arbiem Robots.txt
+# https://arbiem.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://arbiem.com/sitemap.xml
+
