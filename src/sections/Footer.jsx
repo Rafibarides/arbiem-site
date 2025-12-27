@@ -257,6 +257,28 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link
+                    to="/founding-story"
+                    style={{
+                      color: palette.text,
+                      textDecoration: 'none',
+                      fontSize: '0.9rem',
+                      opacity: 0.8,
+                      transition: 'opacity 0.3s ease, color 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.opacity = '1';
+                      e.target.style.color = palette.purple;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.opacity = '0.8';
+                      e.target.style.color = palette.text;
+                    }}
+                  >
+                    Founding Story
+                  </Link>
+                </li>
+                <li>
                   <a
                     href="#sitemap"
                     style={{

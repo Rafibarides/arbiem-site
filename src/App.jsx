@@ -13,6 +13,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import Support from './pages/Support'
 import Terms from './pages/Terms'
 import Careers from './pages/Careers'
+import FoundingStory from './pages/FoundingStory'
 import NavBar from './components/NavBar'
 import ScrollToTop from './components/ScrollToTop'
 import { palette } from './utils/Colors'
@@ -79,6 +80,7 @@ function App() {
           <Route path="/support" element={<Support />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/founding-story" element={<FoundingStory />} />
         </Routes>
       </Router>
     </div>
