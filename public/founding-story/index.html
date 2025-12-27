@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Page-specific SEO Meta Tags -->
+    <title>The Founding Story of ARBIEM | Rafi Barides | Brooklyn Music Streaming Platform</title>
+    <meta name="description" content="Learn about the founding story of ARBIEM, a community-focused music streaming platform founded by Rafi Barides. Built to empower independent artists with tools traditionally reserved for major labels." />
+    <meta name="keywords" content="Arbiem, founding story, Rafi Barides, music streaming platform, Brooklyn, independent artists, singer songwriter, React Native, community streaming" />
+    <meta name="author" content="Rafi Barides" />
+    <link rel="canonical" href="https://arbiem.com/founding-story" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="The Founding Story of ARBIEM | Rafi Barides" />
+    <meta property="og:description" content="How Arbiem was founded by singer-songwriter Rafi Barides to empower independent artists with tools traditionally reserved for major labels." />
+    <meta property="og:image" content="https://arbiem.com/preview.jpg" />
+    <meta property="og:url" content="https://arbiem.com/founding-story" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Arbiem Music" />
+    <meta property="article:author" content="Rafi Barides" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Founding Story of ARBIEM | Rafi Barides" />
+    <meta name="twitter:description" content="How Arbiem was founded to empower independent artists with tools traditionally reserved for major labels." />
+    <meta name="twitter:image" content="https://arbiem.com/preview.jpg" />
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Founding Story of ARBIEM",
+      "description": "Learn about the founding story of ARBIEM, a community-focused music streaming platform founded by Rafi Barides to empower independent artists.",
+      "url": "https://arbiem.com/founding-story",
+      "datePublished": "2024-01-01",
+      "dateModified": "2025-12-27",
+      "author": {
+        "@type": "Person",
+        "name": "Rafi Barides",
+        "jobTitle": "Founder and CEO",
+        "url": "https://arbiem.com",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Arbiem"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Arbiem",
+        "url": "https://arbiem.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://arbiem.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arbiem.com/founding-story"
+      },
+      "about": {
+        "@type": "Organization",
+        "name": "Arbiem",
+        "description": "A community-focused music streaming platform based in Brooklyn, NY that empowers independent artists",
+        "url": "https://arbiem.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Rafi Barides"
+        },
+        "foundingLocation": {
+          "@type": "Place",
+          "name": "Brooklyn, New York"
+        },
+        "sameAs": [
+          "https://apps.apple.com/app/arbiem"
+        ]
+      }
+    }
+    </script>
+    
+    <!-- Additional Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Arbiem",
+      "url": "https://arbiem.com",
+      "logo": "https://arbiem.com/logo.png",
+      "description": "A community-focused music streaming platform for independent artists based in Brooklyn, NY",
+      "founder": {
+        "@type": "Person",
+        "name": "Rafi Barides"
+      },
+      "foundingDate": "2024",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Brooklyn, New York"
+      }
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet" />
+    
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: "M PLUS Rounded 1c", sans-serif;
+        background-color: #0D0D0D;
+        color: #FFFFFF;
+        line-height: 1.8;
+        min-height: 100vh;
+      }
+      .nav {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid #51697320;
+      }
+      .nav img { width: 32px; height: 32px; }
+      .nav span { font-weight: bold; font-size: 1.2rem; }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 60px 20px 80px;
+      }
+      header { text-align: center; margin-bottom: 50px; }
+      h1 {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+      .subtitle {
+        color: #de00ff;
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        font-weight: 500;
+      }
+      section {
+        background: linear-gradient(135deg, rgba(37, 56, 64, 0.7) 0%, rgba(81, 105, 115, 0.3) 100%);
+        border: 1px solid rgba(81, 105, 115, 0.3);
+        border-radius: 20px;
+        padding: 35px;
+        margin-bottom: 25px;
+      }
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+      .icon-circle {
+        width: 50px;
+        height: 50px;
+        background: rgba(222, 0, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #de00ff;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+      h2 {
+        font-size: clamp(1.3rem, 3vw, 1.6rem);
+        font-weight: 600;
+      }
+      p { 
+        opacity: 0.9; 
+        font-size: clamp(1rem, 2.5vw, 1.1rem);
+        margin-bottom: 15px;
+      }
+      p:last-child { margin-bottom: 0; }
+      strong { color: #de00ff; }
+      em { font-style: italic; }
+      .quote-box {
+        background: rgba(222, 0, 255, 0.1);
+        border: 1px solid rgba(222, 0, 255, 0.2);
+        border-radius: 15px;
+        padding: 20px;
+        margin-top: 20px;
+        font-style: italic;
+      }
+      .summary-box {
+        background: linear-gradient(135deg, rgba(222, 0, 255, 0.15) 0%, rgba(222, 0, 255, 0.05) 100%);
+        border: 2px solid rgba(222, 0, 255, 0.4);
+        text-align: center;
+      }
+      .summary-box h2 { 
+        color: #de00ff; 
+        margin-bottom: 20px;
+        justify-content: center;
+      }
+      footer {
+        border-top: 1px solid #51697330;
+        padding: 30px 20px;
+        text-align: center;
+        margin-top: 40px;
+      }
+      footer a {
+        color: #de00ff;
+        text-decoration: none;
+      }
+      footer a:hover { text-decoration: underline; }
+      @media (max-width: 600px) {
+        section { padding: 25px 20px; }
+        .section-header { flex-direction: column; text-align: center; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+        <img src="/favicon.png" alt="Arbiem Logo" />
+        <span>Arbiem</span>
+      </a>
+    </nav>
+    
+    <main class="container">
+      <article itemscope itemtype="https://schema.org/Article">
+        <meta itemprop="headline" content="The Founding Story of ARBIEM" />
+        <meta itemprop="author" content="Rafi Barides" />
+        <meta itemprop="publisher" content="Arbiem" />
+        
+        <header>
+          <h1 itemprop="name">The Founding Story of ARBIEM</h1>
+          <p class="subtitle">A streaming platform built by an artist, for artists</p>
+        </header>
+        
+        <div itemprop="articleBody">
+          <!-- Section 1: The Origin -->
+          <section aria-labelledby="origin-heading">
+            <div class="section-header">
+              <div class="icon-circle">💡</div>
+              <h2 id="origin-heading">The Origin</h2>
+            </div>
+            <p>
+              Arbiem was founded by <strong>Rafi Barides</strong>, a singer-songwriter and software engineer, to address a gap in the modern music ecosystem. As an independent artist, Barides observed that many expressive tools essential to building an artist's narrative were reserved for artists signed to major labels.
+            </p>
+          </section>
+          
+          <!-- Section 2: The Problem -->
+          <section aria-labelledby="problem-heading">
+            <div class="section-header">
+              <div class="icon-circle">🎵</div>
+              <h2 id="problem-heading">The Problem with Traditional Streaming</h2>
+            </div>
+            <p>
+              Features like <strong>motion artwork</strong>, <strong>advanced synced lyrics with background vocals</strong>, and <strong>animated profile visuals</strong>—while framed as premium—play a critical role in storytelling and audience connection. Yet these tools remain inaccessible to most independent musicians.
+            </p>
+            <div class="quote-box">
+              <p>"These features, while framed as premium, play a critical role in storytelling and audience connection, yet remain inaccessible to most independent musicians."</p>
+            </div>
+          </section>
+          
+          <!-- Section 3: The Solution -->
+          <section aria-labelledby="solution-heading">
+            <div class="section-header">
+              <div class="icon-circle">❤️</div>
+              <h2 id="solution-heading">ARBIEM: A Response to Industry Imbalance</h2>
+            </div>
+            <p>
+              ARBIEM was created as a response to that imbalance. The platform's mission is to <strong>empower artists</strong> by giving them access to the same creative and technical features traditionally gatekept by the industry—allowing them to fully present their work and identity on their own terms.
+            </p>
+          </section>
+          
+          <!-- Section 4: For Listeners -->
+          <section aria-labelledby="listeners-heading">
+            <div class="section-header">
+              <div class="icon-circle">👥</div>
+              <h2 id="listeners-heading">For the Listeners</h2>
+            </div>
+            <p>
+              For listeners, ARBIEM offers a way to <strong>discover and support local and emerging talent early</strong>, listen without ads, and re-engage with music as a <strong>community-driven experience</strong> rather than a purely algorithmic one.
+            </p>
+          </section>
+          
+          <!-- Section 5: About the Founder -->
+          <section aria-labelledby="founder-heading">
+            <div class="section-header">
+              <div class="icon-circle">💻</div>
+              <h2 id="founder-heading">About the Founder</h2>
+            </div>
+            <div itemscope itemtype="https://schema.org/Person">
+              <meta itemprop="name" content="Rafi Barides" />
+              <meta itemprop="jobTitle" content="Founder and CEO of Arbiem" />
+              <p>
+                <strong itemprop="name">Rafi Barides</strong>, who has released multiple projects including <em>Rags to Rags</em> and <em>Storm Before the Storm</em>, serves as the <strong>Founder and CEO of Arbiem</strong>—a community-focused streaming platform available on the App Store.
+              </p>
+              <p>
+                In addition to his work as a musician, he studied computer science and built the platform as a solo project, developing the <strong>mobile app with React Native</strong>, along with the website and supporting infrastructure.
+              </p>
+            </div>
+          </section>
+          
+          <!-- Summary Section -->
+          <section class="summary-box" aria-label="Summary">
+            <h2>What is ARBIEM?</h2>
+            <p>
+              ARBIEM is a <strong>community-focused music streaming platform</strong> founded by singer-songwriter and software engineer Rafi Barides. Based in <strong>Brooklyn, New York</strong>, Arbiem empowers independent artists with professional-grade features like motion artwork, synced lyrics, and animated profiles—tools traditionally reserved for major label artists. The platform offers listeners an ad-free, algorithm-free way to discover and support emerging talent directly.
+            </p>
+          </section>
+        </div>
+      </article>
+    </main>
+    
+    <footer>
+      <p><a href="/">← Back to Arbiem Home</a> · <a href="/roster">View Artist Roster</a> · <a href="/faq">FAQ</a></p>
+      <p style="margin-top: 15px; opacity: 0.6; font-size: 0.9rem;">© 2025 Arbiem. All rights reserved. Brooklyn, NY</p>
+    </footer>
+  </body>
+</html>
